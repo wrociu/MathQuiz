@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleMathQuiz.Core.Models
 {
-    public class Answer
+    public class Answer : IEquatable<Answer>
     {
         public string AnswerTxt { get; set; }
 
@@ -18,6 +18,14 @@ namespace SimpleMathQuiz.Core.Models
         public override string ToString()
         {
             return AnswerTxt;
+        }
+
+        public bool Equals(Answer other)
+        {
+            if (other == null)
+                return false;
+
+            return this.AnswerTxt.Equals(other.AnswerTxt);
         }
     }
 }

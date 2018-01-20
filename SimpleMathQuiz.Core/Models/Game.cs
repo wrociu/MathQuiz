@@ -13,6 +13,7 @@ namespace SimpleMathQuiz.Core.Models
         public int NumberOfCorrectAnswers { get; set; }
         public int NumberOfQuestionAnswers { get; set; }
         private int _currentQuestionNumber;
+        private Question _currentQuestion;
 
         public event EventHandler onLastQuestionAnswered;
 
@@ -38,22 +39,32 @@ namespace SimpleMathQuiz.Core.Models
             NumberOfQuestionAnswers = 4;
             InitializeTheGame(NumberOfQuestions, NumberOfQuestionAnswers);
             _currentQuestionNumber = -1;
+            
         }
         #endregion
 
         #region Methods
         public void MoveToNextQuestion()
+        {            
+            CurrentQuestionNumber++;
+            _currentQuestion = Questions.ElementAt<Question>(CurrentQuestionNumber);
+        }
+
+        public string GetCurrentQuestionText()
         {
-            CurrentQuestionNumber++;            
+            return _currentQuestion.QuestionTxt;
+        }
+
+        public Answer[] GetCurrentQuestionAnswersArray()
+        {
+            return _currentQuestion.Answers.Values.ToArray();
         }
 
         public string IsAnswerCorrect(Answer givenAnswer)
         {
-            string result;
+            string result;                      
 
-            Question currentQuestion = Questions.ElementAt<Question>(CurrentQuestionNumber);           
-
-            if (givenAnswer.AnswerTxt == currentQuestion.CorrectAnswer.AnswerTxt)
+            if (givenAnswer.Equals(_currentQuestion.CorrectAnswer))
             {
                 NumberOfCorrectAnswers++;
                 result = "The answer is correct.";
@@ -64,7 +75,6 @@ namespace SimpleMathQuiz.Core.Models
             }
             result += String.Format($" Number of correct answers: {NumberOfCorrectAnswers}");
             return result;
-
         }
 
         private int GenerateRandomAnswer(Random rnd, int expectedResult, int expectedResultIndex, int answerIndex)
@@ -84,6 +94,7 @@ namespace SimpleMathQuiz.Core.Models
             return result;
 
         }
+
         public void InitializeTheGame(int numberOfQuestions, int numberOfQuestionAnswers)
         {
             this.NumberOfQuestions = numberOfQuestions;

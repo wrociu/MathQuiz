@@ -14,21 +14,19 @@ namespace SimpleMathQuiz.Core.ViewModels
     public class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public Game Game { get; set; }
-        private Question[] _questions;
+        private Game _game;
+
         private Answer[] _answers;
         public bool IsLastQuestionAnswered;
                
 
         public GameViewModel()
         {
-            
-            Game = new Game();
-            Game.onLastQuestionAnswered += Game_onLastQuestionAnswered;
-            Game.MoveToNextQuestion();
-            _questions = Game.Questions.ToArray();
+            _game = new Game();
+            _game.onLastQuestionAnswered += Game_onLastQuestionAnswered;
+            _game.MoveToNextQuestion();
             IsLastQuestionAnswered = false;
-            GoToStep(Game.CurrentQuestionNumber);
+            GoToStep(_game.CurrentQuestionNumber);            
         }
 
         #region class properties and fields
@@ -75,19 +73,18 @@ namespace SimpleMathQuiz.Core.ViewModels
 
         private void GoToStep(int stepNumber)
         {
-            QuestionText = _questions[stepNumber].QuestionTxt;
-            _answers = _questions[Game.CurrentQuestionNumber].Answers.Values.ToArray();
-            RaisePropertyChanged("Answers");
-            
+            QuestionText = _game.GetCurrentQuestionText();
+            _answers = _game.GetCurrentQuestionAnswersArray();
+            RaisePropertyChanged("Answers");            
         }
 
         private void HandleAnswer(object param)
         {
-            UserAnswer = Game.IsAnswerCorrect(new Answer(param.ToString()));
-            Game.MoveToNextQuestion();
+            UserAnswer = _game.IsAnswerCorrect(new Answer(param.ToString()));
+            _game.MoveToNextQuestion();
             if (!IsLastQuestionAnswered)
             {
-                GoToStep(Game.CurrentQuestionNumber);
+                GoToStep(_game.CurrentQuestionNumber);
             }
         }
 
@@ -109,12 +106,9 @@ namespace SimpleMathQuiz.Core.ViewModels
                 {
                     answerGivenCommand = new RelayCommandWithParameters(HandleAnswer, () => !IsLastQuestionAnswered);
                 }
-
                 return answerGivenCommand;
-
             }
         }
-
         #endregion
 
 
