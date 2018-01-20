@@ -1,0 +1,12 @@
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\bin\Debug\SimpleMathQuiz.Core.dll
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\bin\Debug\SimpleMathQuiz.Core.pdb
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\obj\Debug\SimpleMathQuiz.Core.csproj.CoreCompileInputs.cache
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\obj\Debug\SimpleMathQuiz.Core.dll
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\obj\Debug\SimpleMathQuiz.Core.pdb
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\bin\Debug\SimpleMathQuiz.Core.dll
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\bin\Debug\SimpleMathQuiz.Core.pdb
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\obj\Debug\SimpleMathQuiz.Core.csproj.CoreCompileInputs.cache
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\obj\Debug\SimpleMathQuiz.Core.dll
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\obj\Debug\SimpleMathQuiz.Core.pdb
+C:\Users\piwrpl\Google Drive\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz (1).Core\obj\Debug\SimpleMathQuiz.Core.csprojResolveAssemblyReference.cache
+C:\Users\Piotr\Dysk Google\VS_PROJECTS\Codepresso\SimpleMathQuiz.Core\SimpleMathQuiz.Core\obj\Debug\SimpleMathQuiz.Core.csprojResolveAssemblyReference.cache
