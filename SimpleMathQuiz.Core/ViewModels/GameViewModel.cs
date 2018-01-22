@@ -1,5 +1,6 @@
 ﻿using SimpleMathQuiz.Core.Commands;
 using SimpleMathQuiz.Core.Models;
+using SimpleMathQuiz.Core.ViewModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 
 namespace SimpleMathQuiz.Core.ViewModels
 {
-    public class GameViewModel : INotifyPropertyChanged
+    public class GameViewModel : INotifyPropertyChanged, ISimpleQuizViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private Game _game;
@@ -43,7 +44,14 @@ namespace SimpleMathQuiz.Core.ViewModels
                 _questionText = value;
                 RaisePropertyChanged();
             }
-        }        
+        }
+
+        public string ViewModelName
+        {
+            get => "GameViewModel";
+        }
+
+
         public object[] Answers
         {
             get
@@ -109,6 +117,8 @@ namespace SimpleMathQuiz.Core.ViewModels
                 return answerGivenCommand;
             }
         }
+
+        
         #endregion
 
 

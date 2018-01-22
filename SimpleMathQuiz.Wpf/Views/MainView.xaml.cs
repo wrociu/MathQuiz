@@ -11,7 +11,7 @@ namespace SimpleMathQuiz.Wpf.Views
         public MainView()
         {
             InitializeComponent();
-            DataContext = new GameViewModel();
+            DataContext = new MainViewModel();
         }
     }
 }
