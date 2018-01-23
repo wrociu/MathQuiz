@@ -7,3 +7,7 @@ SimpleMathQuiz.Wpf/obj/Debug/Views/GameSetupView.baml
 SimpleMathQuiz.Wpf/obj/Debug/GeneratedInternalTypeHelper.g.cs
 SimpleMathQuiz.Wpf/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 .vs/
+SimpleMathQuiz.Core/bin/
+SimpleMathQuiz.Core/obj/
+SimpleMathQuiz.Wpf/bin/
+SimpleMathQuiz.Wpf/obj/
