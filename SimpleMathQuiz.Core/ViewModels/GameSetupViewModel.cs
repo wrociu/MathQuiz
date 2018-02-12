@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace SimpleMathQuiz.Core.ViewModels
 {
-    public class GameSetupViewModel : INotifyPropertyChanged, ISimpleQuizViewModel
+    public class GameSetupViewModel : BaseViewModel, INotifyPropertyChanged, ISimpleQuizViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private int _numberOfQuestion;
         public int NumberOfQuestions
         {
@@ -33,10 +31,6 @@ namespace SimpleMathQuiz.Core.ViewModels
             get => "GameSetupViewModel";
         }
 
-        private void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
 
     }

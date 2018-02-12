@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace SimpleMathQuiz.Core.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel, INotifyPropertyChanged
     {
         private ICommand _startGameCommand;
         private ICommand _restartGameCommand;
@@ -67,14 +67,7 @@ namespace SimpleMathQuiz.Core.ViewModels
             CurrentPageViewModel = new GameViewModel();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        #region Methods
-        private void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
 
 
     }

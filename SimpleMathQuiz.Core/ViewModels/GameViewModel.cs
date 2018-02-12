@@ -12,9 +12,8 @@ using System.Windows.Input;
 
 namespace SimpleMathQuiz.Core.ViewModels
 {
-    public class GameViewModel : INotifyPropertyChanged, ISimpleQuizViewModel
+    public class GameViewModel : BaseViewModel, INotifyPropertyChanged, ISimpleQuizViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private Game _game;
 
         private Answer[] _answers;
@@ -74,10 +73,6 @@ namespace SimpleMathQuiz.Core.ViewModels
 
 
         #region Methods
-        private void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         private void GoToStep(int stepNumber)
         {

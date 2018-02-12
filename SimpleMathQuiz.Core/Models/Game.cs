@@ -8,6 +8,12 @@ namespace SimpleMathQuiz.Core.Models
 {
     public class Game
     {
+        #region game setup constans 
+        private const int const_number_of_questions = 10;
+        private const int const_number_of_answers_per_question = 4;
+        private const int const_question_number_max_value = 10;
+        #endregion
+
         public List<Question> Questions { get; set; }
         public int NumberOfQuestions { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
@@ -35,8 +41,8 @@ namespace SimpleMathQuiz.Core.Models
         {
             Questions = new List<Question>();
             NumberOfCorrectAnswers = 0;
-            NumberOfQuestions = 5;
-            NumberOfQuestionAnswers = 4;
+            NumberOfQuestions = const_number_of_questions;
+            NumberOfQuestionAnswers = const_number_of_answers_per_question;
             InitializeTheGame(NumberOfQuestions, NumberOfQuestionAnswers);
             _currentQuestionNumber = -1;
             
@@ -88,7 +94,7 @@ namespace SimpleMathQuiz.Core.Models
             {
                 do
                 {
-                    result = rnd.Next(1, 10);
+                    result = rnd.Next(1, 2* const_question_number_max_value);
                 } while (result == expectedResult);
             }
             return result;
@@ -103,8 +109,8 @@ namespace SimpleMathQuiz.Core.Models
             for (int i = 0; i < NumberOfQuestions; i++)
             {
                 int generatedAnswer = 0;
-                int a = rnd.Next(1, 10);
-                int b = rnd.Next(1, 10);
+                int a = rnd.Next(1, const_question_number_max_value);
+                int b = rnd.Next(1, const_question_number_max_value);
                 int expectedResult = a + b;
                 int expectedResultIndex = rnd.Next(1, NumberOfQuestionAnswers + 1);
 
