@@ -9,6 +9,6 @@
     <StackPanel>
         <Label Content="Witaj w GaME SETUP!!!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Text="{Binding NumberOfQuestions}" />
-        <TextBox Text="Lorep Ipsum 12e2" Margin="20" />
+        <TextBox Text="{Binding GameLevel}" Margin="20" />
     </StackPanel>
 </UserControl>

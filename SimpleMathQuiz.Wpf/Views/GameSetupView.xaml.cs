@@ -24,7 +24,6 @@ namespace SimpleMathQuiz.Wpf.Views
         public GameSetupView()
         {
             InitializeComponent();
-            DataContext = new GameSetupViewModel();
         }
     }
 }

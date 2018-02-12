@@ -13,6 +13,20 @@ namespace SimpleMathQuiz.Core.ViewModels
 {
     public class MainViewModel : BaseViewModel, INotifyPropertyChanged
     {
+        private int _numberOfQuestions;
+        public  int NumberOfQuestions
+        {
+            get => _numberOfQuestions;
+            set => _numberOfQuestions = value;
+        }
+
+        private int _gameLevel;
+        public int GameLevel
+        {
+            get => _gameLevel;
+            set => _gameLevel = value;
+        }
+
         private ICommand _startGameCommand;
         private ICommand _restartGameCommand;
 
@@ -33,7 +47,7 @@ namespace SimpleMathQuiz.Core.ViewModels
 
         public MainViewModel()
         {
-            CurrentPageViewModel = new GameSetupViewModel();
+            CurrentPageViewModel = new GameSetupViewModel(this);
         }
 
         public ICommand StartGameCommand
@@ -62,9 +76,11 @@ namespace SimpleMathQuiz.Core.ViewModels
             }
         }
 
+        
+
         public void StartNewGame()
         {
-            CurrentPageViewModel = new GameViewModel();
+            CurrentPageViewModel = new GameViewModel(this.NumberOfQuestions, this.GameLevel);
         }
 
 

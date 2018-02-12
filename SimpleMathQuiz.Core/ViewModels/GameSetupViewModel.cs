@@ -11,6 +11,14 @@ namespace SimpleMathQuiz.Core.ViewModels
 {
     public class GameSetupViewModel : BaseViewModel, INotifyPropertyChanged, ISimpleQuizViewModel
     {
+        private MainViewModel _mainViewModel;
+
+        public GameSetupViewModel(MainViewModel mainViewModel)
+        {
+            _mainViewModel = mainViewModel;
+        }
+
+
         private int _numberOfQuestion;
         public int NumberOfQuestions
         {
@@ -22,6 +30,19 @@ namespace SimpleMathQuiz.Core.ViewModels
             set
             {
                 _numberOfQuestion = value;
+                _mainViewModel.NumberOfQuestions = _numberOfQuestion;
+                RaisePropertyChanged();
+            }
+        }
+
+        private int _gameLevel;
+        public int GameLevel
+        {
+            get => _gameLevel;
+            set
+            {
+                _gameLevel = value;
+                _mainViewModel.GameLevel = _gameLevel;
                 RaisePropertyChanged();
             }
         }
@@ -29,9 +50,6 @@ namespace SimpleMathQuiz.Core.ViewModels
         public string ViewModelName
         {
             get => "GameSetupViewModel";
-        }
-
-
-
+        }        
     }
 }

@@ -9,7 +9,6 @@ namespace SimpleMathQuiz.Core.Models
     public class Game
     {
         #region game setup constans 
-        private const int const_number_of_questions = 10;
         private const int const_number_of_answers_per_question = 4;
         private const int const_question_number_max_value = 10;
         #endregion
@@ -18,10 +17,11 @@ namespace SimpleMathQuiz.Core.Models
         public int NumberOfQuestions { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
         public int NumberOfQuestionAnswers { get; set; }
+        public int MaxAnswerNumber { get; set; }
         private int _currentQuestionNumber;
         private Question _currentQuestion;
 
-        public event EventHandler onLastQuestionAnswered;
+        public event EventHandler OnLastQuestionAnswered;
 
         public int CurrentQuestionNumber
         {
@@ -29,31 +29,34 @@ namespace SimpleMathQuiz.Core.Models
             set
             {
                 _currentQuestionNumber = value;
-                if (_currentQuestionNumber == NumberOfQuestions -1)
+                if (_currentQuestionNumber == NumberOfQuestions)
                 {
-                    onLastQuestionAnswered?.Invoke(this, EventArgs.Empty);
+                    OnLastQuestionAnswered?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
 
         #region Constructors
-        public Game()
+        public Game(int numberOfQuestions, int gameLevel)
         {
             Questions = new List<Question>();
             NumberOfCorrectAnswers = 0;
-            NumberOfQuestions = const_number_of_questions;
+            NumberOfQuestions = numberOfQuestions;
             NumberOfQuestionAnswers = const_number_of_answers_per_question;
+            MaxAnswerNumber = gameLevel * 10;
             InitializeTheGame(NumberOfQuestions, NumberOfQuestionAnswers);
-            _currentQuestionNumber = -1;
+            CurrentQuestionNumber = -1;
             
         }
         #endregion
 
         #region Methods
         public void MoveToNextQuestion()
-        {            
+        {
             CurrentQuestionNumber++;
-            _currentQuestion = Questions.ElementAt<Question>(CurrentQuestionNumber);
+            if (CurrentQuestionNumber < NumberOfQuestions)
+                _currentQuestion = Questions.ElementAt<Question>(CurrentQuestionNumber);
+            
         }
 
         public string GetCurrentQuestionText()
@@ -94,7 +97,7 @@ namespace SimpleMathQuiz.Core.Models
             {
                 do
                 {
-                    result = rnd.Next(1, 2* const_question_number_max_value);
+                    result = rnd.Next(1, 2* MaxAnswerNumber);
                 } while (result == expectedResult);
             }
             return result;
@@ -109,8 +112,8 @@ namespace SimpleMathQuiz.Core.Models
             for (int i = 0; i < NumberOfQuestions; i++)
             {
                 int generatedAnswer = 0;
-                int a = rnd.Next(1, const_question_number_max_value);
-                int b = rnd.Next(1, const_question_number_max_value);
+                int a = rnd.Next(1, MaxAnswerNumber);
+                int b = rnd.Next(1, MaxAnswerNumber);
                 int expectedResult = a + b;
                 int expectedResultIndex = rnd.Next(1, NumberOfQuestionAnswers + 1);
 

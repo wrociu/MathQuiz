@@ -20,10 +20,10 @@ namespace SimpleMathQuiz.Core.ViewModels
         public bool IsLastQuestionAnswered;
                
 
-        public GameViewModel()
+        public GameViewModel(int numberOfQuestions, int gameLevel)
         {
-            _game = new Game();
-            _game.onLastQuestionAnswered += Game_onLastQuestionAnswered;
+            _game = new Game(numberOfQuestions, gameLevel);
+            _game.OnLastQuestionAnswered += Game_onLastQuestionAnswered;
             _game.MoveToNextQuestion();
             IsLastQuestionAnswered = false;
             GoToStep(_game.CurrentQuestionNumber);            
@@ -111,9 +111,7 @@ namespace SimpleMathQuiz.Core.ViewModels
                 }
                 return answerGivenCommand;
             }
-        }
-
-        
+        }        
         #endregion
 
 
