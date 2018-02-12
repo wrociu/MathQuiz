@@ -19,23 +19,38 @@
     </Window.Resources>
 
     <Grid>
+
+        <Grid.Background>
+            <RadialGradientBrush 
+          GradientOrigin="0.5,0.5" 
+          Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                <RadialGradientBrush.GradientStops>
+                    <GradientStop Color="#531362" Offset="0" />
+                    <GradientStop Color="#4a1158" Offset="0.5" />
+                    <GradientStop Color="#3a0d44" Offset="1" />
+                </RadialGradientBrush.GradientStops>
+            </RadialGradientBrush>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>      
+            
 
-        <StackPanel Grid.Column ="1" Background="Blue">
-            <Button Content="Start The Game"
+            <StackPanel Grid.Column ="1">
+                <Button Content="Start The Game"
                                 Command="{Binding StartGameCommand}"                                
                                 Margin="2,5"/>
 
-            <Button  Content="RESTART The Game"
+                <Button  Content="RESTART The Game"
                                 Command="{Binding RestartGameCommand}"                                
                                 Margin="2,5"/>
-        </StackPanel>        
+            </StackPanel>
 
-        <ContentControl Grid.Column ="0" Content="{Binding CurrentPageViewModel}" />
-        
+            <ContentControl Grid.Column ="0" Content="{Binding CurrentPageViewModel}" />
+
+
     </Grid>
 
     
