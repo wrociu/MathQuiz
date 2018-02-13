@@ -12,21 +12,21 @@
 
         <Label Content="Number of Questions:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="12"/>
 
-        <Border BorderThickness="1" BorderBrush="#FFFFFF" Margin="20, 10">
-            <TextBox Text="{Binding NumberOfQuestions}"  BorderThickness="0" TextAlignment="Center" Foreground="#FFFFFF">
-                <TextBox.Background>
-                    <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
-                </TextBox.Background>
+        <Border BorderThickness="1" BorderBrush="#FFFFFF" Margin="20, 10" CornerRadius="10">
+            <Border.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Border.Background>
+            <TextBox Text="{Binding NumberOfQuestions}"  BorderThickness="0" TextAlignment="Center" Foreground="#FFFFFF" Background="Transparent" Margin="10, 0">                
             </TextBox>
         </Border>
 
         <Label Content="Game Level:" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="12"/>
        
-        <Border BorderThickness="1" BorderBrush="#FFFFFF" Margin="20, 10">
-            <TextBox Text="{Binding GameLevel}"  BorderThickness="0" TextAlignment="Center" Foreground="#FFFFFF">
-                <TextBox.Background>
-                    <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
-                </TextBox.Background>
+        <Border BorderThickness="1" BorderBrush="#FFFFFF" Margin="20, 10" CornerRadius="10">
+            <Border.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Border.Background>
+            <TextBox Text="{Binding GameLevel}"  BorderThickness="0" TextAlignment="Center" Foreground="#FFFFFF" Background="Transparent" Margin="10, 0">                
             </TextBox>
         </Border>        
         

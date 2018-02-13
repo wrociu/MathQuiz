@@ -18,21 +18,49 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <Label  Grid.ColumnSpan="2" Content="{Binding QuestionText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" FontSize="24"/>
+        
+
+        <Label  Grid.ColumnSpan="2" Content="{Binding QuestionText}" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Margin="15" FontStyle="Normal" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="34" />
+
         <Button Grid.Row="1" Content="{Binding Answers[0]}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" 
-                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[0]}" Width = "150"/>
+                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[0]}" Width = "150">
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Button.Background>
+        </Button>
+
         <Button Grid.Row="1" Grid.Column="1" Content="{Binding Answers[1]}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"
-                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[1]}" Width = "150"/>
+                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[1]}" Width = "150">
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Button.Background>
+        </Button>
         <Button Grid.Row="2" Content="{Binding Answers[2]}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"
-                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[2]}" Width = "150"/>
+                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[2]}" Width = "150">
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Button.Background>
+        </Button>
         <Button Grid.Row="2" Grid.Column="1" Content="{Binding Answers[3]}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"
-                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[3]}" Width = "150" />
+                Command="{Binding AnswerGivenCommand}" CommandParameter="{Binding Answers[3]}" Width = "150">
+            <Button.Background>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.4" />
+            </Button.Background>
+        </Button>
+
+        <Rectangle Grid.ColumnSpan="2" Grid.Row="3" Fill="#FFE0E0E0" Width="30" Height="30">
+            <Rectangle.OpacityMask>
+                <VisualBrush Visual="{StaticResource CorrectAnswers}" />
+            </Rectangle.OpacityMask>
+        </Rectangle>
+
         <Label  Grid.ColumnSpan="2" Grid.Row="3" Content="{Binding UserAnswer}" 
-                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" Padding="10" />
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" FontStyle="Normal" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="10" />
 
 
 
