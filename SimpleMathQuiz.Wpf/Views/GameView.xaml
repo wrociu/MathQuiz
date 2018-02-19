@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimpleMathQuiz.Wpf.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="400">
+             d:DesignHeight="400" d:DesignWidth="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -53,14 +53,38 @@
             </Button.Background>
         </Button>
 
-        <Rectangle Grid.ColumnSpan="2" Grid.Row="3" Fill="#FFE0E0E0" Width="30" Height="30">
-            <Rectangle.OpacityMask>
-                <VisualBrush Visual="{StaticResource CorrectAnswers}" />
-            </Rectangle.OpacityMask>
-        </Rectangle>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
 
-        <Label  Grid.ColumnSpan="2" Grid.Row="3" Content="{Binding UserAnswer}" 
-                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" FontStyle="Normal" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="10" />
+            <Rectangle Fill="#FFE0E0E0" Width="30" Height="30">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Visual="{StaticResource CorrectAnswers}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+
+            <Label  Grid.Column="1"  Content="{Binding NumberOfCorrectAnswers}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" 
+                FontStyle="Normal" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="34"  />
+
+            <Rectangle Grid.Column="2" Fill="#FFE0E0E0" Width="30" Height="30">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Visual="{StaticResource WrongAnswers}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+
+            <Label Grid.Column="3" Content="{Binding NumberOfWrongAnswers}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" 
+                FontStyle="Normal" FontWeight="Bold" Foreground="#FFE0E0E0" FontSize="34" />
+            
+        </Grid>
+        
+
+        
 
 
 

@@ -59,13 +59,24 @@ namespace SimpleMathQuiz.Core.ViewModels
             }
         }
 
-        private string _userAnswer;
-        public string UserAnswer
+        private int _numberOfCorrectAnswers;
+        public int NumberOfCorrectAnswers
         {
-            get { return _userAnswer; }
+            get { return _numberOfCorrectAnswers; }
             set
             {
-                _userAnswer = value;
+                _numberOfCorrectAnswers = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private int _numberOfWrongAnswers;
+        public int NumberOfWrongAnswers
+        {
+            get { return _numberOfWrongAnswers; }
+            set
+            {
+                _numberOfWrongAnswers = value;
                 RaisePropertyChanged();
             }
         }
@@ -83,7 +94,9 @@ namespace SimpleMathQuiz.Core.ViewModels
 
         private void HandleAnswer(object param)
         {
-            UserAnswer = _game.IsAnswerCorrect(new Answer(param.ToString()));
+            bool bOk = _game.IsAnswerCorrect(new Answer(param.ToString()));
+            NumberOfCorrectAnswers = _game.NumberOfCorrectAnswers;
+            NumberOfWrongAnswers = _game.NumberOfWrongAnswers;
             _game.MoveToNextQuestion();
             if (!IsLastQuestionAnswered)
             {

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SimpleMathQuiz.Wpf.Views"
         xmlns:vm="clr-namespace:SimpleMathQuiz.Core.ViewModels;assembly=SimpleMathQuiz.Core"
         mc:Ignorable="d"
-        Title="Simple Math Quiz 1.0" Height="400" Width="600"
+        Title="Simple Math Quiz 1.0" Height="500" Width="600"
         DataContext="">
 
     <Window.Resources>

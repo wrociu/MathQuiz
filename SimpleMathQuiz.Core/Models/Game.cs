@@ -16,6 +16,7 @@ namespace SimpleMathQuiz.Core.Models
         public List<Question> Questions { get; set; }
         public int NumberOfQuestions { get; set; }
         public int NumberOfCorrectAnswers { get; set; }
+        public int NumberOfWrongAnswers { get; set; }
         public int NumberOfQuestionAnswers { get; set; }
         public int MaxAnswerNumber { get; set; }
         private int _currentQuestionNumber;
@@ -41,6 +42,7 @@ namespace SimpleMathQuiz.Core.Models
         {
             Questions = new List<Question>();
             NumberOfCorrectAnswers = 0;
+            NumberOfWrongAnswers = 0;
             NumberOfQuestions = numberOfQuestions;
             NumberOfQuestionAnswers = const_number_of_answers_per_question;
             MaxAnswerNumber = gameLevel * 10;
@@ -69,21 +71,19 @@ namespace SimpleMathQuiz.Core.Models
             return _currentQuestion.Answers.Values.ToArray();
         }
 
-        public string IsAnswerCorrect(Answer givenAnswer)
+        public bool IsAnswerCorrect(Answer givenAnswer)
         {
-            string result;                      
 
             if (givenAnswer.Equals(_currentQuestion.CorrectAnswer))
             {
                 NumberOfCorrectAnswers++;
-                result = "The answer is correct.";
+                return true;
             }
             else
             {
-                result = "The answer is wrong.";
-            }
-            result += String.Format($" Number of correct answers: {NumberOfCorrectAnswers}");
-            return result;
+                NumberOfWrongAnswers++;
+                return false;
+            }            
         }
 
         private int GenerateRandomAnswer(Random rnd, int expectedResult, int expectedResultIndex, int answerIndex)
